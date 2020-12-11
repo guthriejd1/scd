@@ -7,8 +7,13 @@ SCD implements the method of (Ruan, 2019) for determining if two objects are in 
 * Ceres: Polynomial root-finding
 * GoogleTest
 
+### Installation
+To install simply
+```
+git clone 
+```
 ### References
-'''
+```
 @INPROCEEDINGS{8793496,
 
   author={S. {Ruan} and K. L. {Poblete} and Y. {Li} and Q. {Lin} and Q. {Ma} and G. S. {Chirikjian}},
@@ -26,4 +31,4 @@ SCD implements the method of (Ruan, 2019) for determining if two objects are in 
   pages={1765-1771},
 
   doi={10.1109/ICRA.2019.8793496}}
-'''
+```

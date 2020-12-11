@@ -14,7 +14,7 @@ git clone
 ```
 ### References
 
-*[S. Ruan, K. L. Poblete, Y. Li, Q. Lin, Q. Ma and G. S. Chirikjian, "Efficient Exact Collision Detection between Ellipsoids and Superquadrics via Closed-form Minkowski Sums," 2019 International Conference on Robotics and Automation (ICRA), Montreal, QC, Canada, 2019, pp. 1765-1771, doi: 10.1109/ICRA.2019.8793496.](https://ieeexplore.ieee.org/abstract/document/8793496)
+* [S. Ruan, K. L. Poblete, Y. Li, Q. Lin, Q. Ma and G. S. Chirikjian, "Efficient Exact Collision Detection between Ellipsoids and Superquadrics via Closed-form Minkowski Sums," 2019 International Conference on Robotics and Automation (ICRA), Montreal, QC, Canada, 2019, pp. 1765-1771, doi: 10.1109/ICRA.2019.8793496.](https://ieeexplore.ieee.org/abstract/document/8793496)
 ```
 @INPROCEEDINGS{8793496,
 

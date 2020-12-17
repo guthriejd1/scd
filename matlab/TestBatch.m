@@ -95,7 +95,7 @@ switch numel(SQ1.t)
     case 2
         writematrix([result.theta result.collision], filename, 'Delimiter', ',', 'WriteMode', 'append');
     case 3
-        writematrix([result.eta result.omega result.collision], filename, 'Delimiter', ',', 'WriteMode', 'append');
+        writematrix([result.omega result.eta result.collision], filename, 'Delimiter', ',', 'WriteMode', 'append');
 end
 
 end

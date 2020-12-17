@@ -57,7 +57,7 @@ namespace scd {
         }
 
 // TODO (jay) Refactor this using templates instead of overloading
-        void ReadShapeFile(std::string file_path, uint n_line, Superquadric3& SQ){
+        void ReadShapeFile(std::string file_path, uint n_line, Superquadric<3>& SQ){
             const uint n = 3;
             std::ifstream indata;
             indata.open(file_path);
@@ -67,11 +67,8 @@ namespace scd {
             Eigen::Matrix<double,n,n> R = scd::test::ReadCsvMatrix<Eigen::Matrix<double,n,n>>(file_path, n_line+2);
             Eigen::Matrix<double,n,1> t = scd::test::ReadCsvVector<Eigen::Matrix<double,n,1>>(file_path, n_line+5);
 
-            SQ.ax = a(0);
-            SQ.ay = a(1);
-            SQ.az = a(2);
-            SQ.e1 = e(0);
-            SQ.e2 = e(1);
+            SQ.a = {a[0], a[1], a[2]};
+            SQ.e = {e[0], e[1]};
 
             Eigen::Matrix<double,4,4> X;
             X.setIdentity();
@@ -80,31 +77,8 @@ namespace scd {
             SQ.X.matrix() =X;
             return;
         }
-        void ReadShapeFile(std::string file_path, uint n_line, Ellipsoid3& SQ){
-            const uint n = 3;
-            std::ifstream indata;
-            indata.open(file_path);
-            if (indata.fail())
-                std::cerr << "Failed to open file " << file_path << std::endl;
-            Eigen::Matrix<double,1,n> a = scd::test::ReadCsvMatrix<Eigen::Matrix<double,1,n>>(file_path, n_line);
-            Eigen::Matrix<double,1,n-1> e = scd::test::ReadCsvMatrix<Eigen::Matrix<double,1,n-1>>(file_path, n_line+1);
-            Eigen::Matrix<double,n,n> R = scd::test::ReadCsvMatrix<Eigen::Matrix<double,n,n>>(file_path, n_line+2);
-            Eigen::Matrix<double,n,1> t = scd::test::ReadCsvVector<Eigen::Matrix<double,n,1>>(file_path, n_line+5);
 
-            SQ.ax = a(0);
-            SQ.ay = a(1);
-            SQ.az = a(2);
-
-            Eigen::Matrix<double,4,4> X;
-            X.setIdentity();
-            X.block<3,3>(0,0) = R;
-            X.block<3,1>(0,3) = t;
-            SQ.X.matrix() = X;
-            return;
-        }
-
-
-        void ReadTestFile(std::string file_path, uint n_line, Superquadric3& SQ1, Ellipsoid3& E2, Ellipsoid3& E2c, Result& result){
+        void ReadTestFile(std::string file_path, uint n_line, Superquadric<3>& SQ1, Superquadric<3>& E2, Superquadric<3>& E2c, CollideResult<3>& result){
             std::ifstream indata;
             indata.open(file_path);
             if (indata.fail())
@@ -115,8 +89,8 @@ namespace scd {
             ReadShapeFile(file_path, n_line+8, E2);
             ReadShapeFile(file_path, n_line+16, E2c);
             Eigen::Matrix<double,1,3> d = scd::test::ReadCsvMatrix<Eigen::Matrix<double,1,3>>(file_path, n_line+24);
-            result.eta = d(0);
-            result.omega = d(1);
+            result.angles[0] = d(0);
+            result.angles[1] = d(1);
             result.collide = static_cast<bool>(d(2));
             return;
         }

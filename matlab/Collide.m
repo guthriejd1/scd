@@ -51,8 +51,8 @@ opti.solver('ipopt',p_opts,s_opts);
 sol = opti.solve();
 
 result.root_residuals = sol.value(f);
-result.eta = sol.value(eta);
 result.omega = sol.value(omega);
+result.eta = sol.value(eta);
 
 assert(norm(result.root_residuals) <= 1e-6, 'Tolerance not met');
 

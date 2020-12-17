@@ -1,4 +1,4 @@
-function [h_plot pts] = PlotSuperquadric(S,Color)
+function [h_plot pts] = PlotSuperquadric3D(S,Color)
 pt_index = 0;
 
 eta_pts = [0 logspace(-10,log10(pi/2),200)];
@@ -22,12 +22,12 @@ hold on;
 x = pts(1,:); y = pts(2,:); z = pts(3,:);
 
 tri = delaunay(x,y);
-h = trisurf(tri, x, y, z);
+h_plot = trisurf(tri, x, y, z);
 hold on;
 view(30, 30)
 % 
-h.FaceColor = Color;
-h.EdgeColor = 'none';
+h_plot.FaceColor = Color;
+h_plot.EdgeColor = 'none';
 daspect([1 1 1])
 view(3); 
 axis tight

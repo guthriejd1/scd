@@ -2,7 +2,7 @@ clear
 clc
 close all
 
-test_case = 'cube_ellipsoid';
+test_case = 'box_ellipse_2d';
 test_data_folder = '../test/data/';
 
 S02 = @(theta) [cos(theta) -sin(theta); sin(theta) cos(theta)];
@@ -35,18 +35,17 @@ switch numel(SQ1.t)
     case 2 % 2D
         ColorList = colormap(lines(10));
         figure(1)
-        h_sq1 = PlotSuperquadric2D(SQ1,ColorList(1,:));
-        h_e2 = PlotSuperquadric2D(E2,ColorList(2,:));
+        PlotSuperquadric2D(SQ1,ColorList(1,:));
+        PlotSuperquadric2D(E2,ColorList(2,:));
 
         [result] = Collide2D(SQ1, E2);
 
-        h_e2c = PlotSuperquadric2D(result.E2_c,ColorList(3,:));
+        PlotSuperquadric2D(result.E2_c,ColorList(3,:));
 
         line_eb = [SQ1.t E2.t];
-        plot(line_eb(1,:), line_eb(2,:),'LineWidth',2.0,'Color','k','LineStyle','-');
+        plot(line_eb(1,:), line_eb(2,:),'LineWidth',2.0,'Color','k');
         xlabel('x');
         ylabel('y');
-        legend([h_sq1 h_e2 h_e2c], {'SQ_1: Superquadric','E_2: Ellipse','E_2^c: Ellipse At Contact Point'});
     case 3 % 3D
         figure(1)
         h_sq1 = PlotSuperquadric(SQ1,'b');
@@ -63,6 +62,8 @@ switch numel(SQ1.t)
         zlabel('z');
 
         grid on;
+        view(-15,15);
+        legend({'Superquadr
 end
 
 % Write data to test file

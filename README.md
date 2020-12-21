@@ -9,11 +9,6 @@ SCD implements the method of (Ruan, 2019) for determining if two objects are in 
 * GoogleTest
 ### MATLAB / Python
 * CasADi: Polynomial root-finding with IPOPT
-### Installation
-To install simply
-```
-git clone 
-```
 ### Notes
 * The interface is inspired by that of the [Flexible Collision Library](https://github.com/flexible-collision-library/fcl).
 ### References

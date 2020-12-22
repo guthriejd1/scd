@@ -1,6 +1,6 @@
 Superquadric Collision Detection (SCD)
 ====
-SCD implements the method of (Ruan, 2019) for determining if two objects are in collision. The first object is a convex superquadric and the second object is an ellipsoid. Currently 2D and 3D cases are supported. The method depends on solving for the root of a polynomial. We use Ceres to find this root by minimizing the square of the polynomial. The method returns the point along a line that is the boundary between contact and no contact. By checking the magnitude of the ellipsoid's position relative to the superquadric, we can detect collision. See the paper for more details.
+SCD implements the method of (Ruan, 2019) for determining if two objects are in collision. The first object is a convex superquadric and the second object is an ellipsoid. Currently 2D and 3D cases are supported. The method depends on solving for the root of a polynomial. We use Ceres to find this root by minimizing the square of the polynomial. The method returns the point along a line that is the boundary between contact and no contact. By checking the magnitude of the ellipsoid's position relative to the superquadric, we can detect collision. See the paper for more details. </br >
 ![](/doc/box_ellipse_2d.png)
 ![](/doc/cube_ellipsoid.png)
 
